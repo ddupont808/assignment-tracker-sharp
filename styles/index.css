@@ -6,6 +6,41 @@ body {
     font-family: sans-serif;
     height: 100%;
     margin: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow:none;
+    border-radius: 0px;
+    background-color:rgb(37, 37, 37);
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 1px 1px 6px #333; 
+    background-color:rgb(134, 134, 134);
+}
+
+.ql-html-textContainer .ql-editor {
+    overflow: auto !important;
+}
+
+.ql-bubble .ql-editor blockquote {
+    margin: 0px;
+    border-left: 2px solid #87878747;
+}
+
+.ql-bubble .ql-editor blockquote:last-of-type {
+    margin-bottom: 5px;
+}
+
+.ql-bubble .ql-editor blockquote:first-of-type {
+    margin-top: 5px;
 }
 
 #app {
@@ -14,14 +49,25 @@ body {
     height: 100%;
 }
 
+.ql-tooltip {
+    box-shadow: rgb(0 0 0) 0px 2px 12px -6px, 5px 5px 15px 5px rgb(0 0 0 / 0%);
+    opacity: 1;
+    transition: opacity 0.1s;
+}
+
+.ql-hidden {
+    opacity: 0;
+    display: block !important;
+}
+
 .editor-container {
     overflow: auto;
     height: 100%;
     
     padding-top: 2rem;
     padding-bottom: 4rem;
-    padding-right: 4rem;
-    padding-left: 4rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
     background-color: #35363A;
     color: #DADCE0;
 }

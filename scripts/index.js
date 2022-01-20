@@ -26,21 +26,18 @@ var quill = new Quill('#editor', {
     modules: {
         syntax: true,
         toolbar: [
-            [{ 'font': [] }],
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            [{ 'font': [] }, { 'header': [1, 2, 3, 4, 5, 6, false] }],
 
             ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-            ['blockquote', 'code-block'],
-
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-            [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-            [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-            [{ 'direction': 'rtl' }],                         // text direction
-
             [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-            [{ 'align': [] }],
 
-            ['link', 'image'],
+            // [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+            // [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+            // [{ 'direction': 'rtl' }],                         // text direction
+
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'align': [] }],
+
+            ['blockquote', 'code-block', 'link', 'image'],
 
             ['clean']                                         // remove formatting button
         ],
@@ -54,8 +51,8 @@ new QuillMarkdown(quill);
 
 
 chrome.storage.sync.get(['foregroundColor', 'backgroundColor'], ({ foregroundColor, backgroundColor }) => {
-    $('.editor-container').css('backgroundColor', backgroundColor);
-    $('.editor-container').css('color', foregroundColor);
+    $('body, .editor-container, #editor').css('backgroundColor', backgroundColor);
+    $('body, .editor-container, #editor').css('color', foregroundColor);
 });
 
 function getUpdatedNotes({ epoch, notes }) {
