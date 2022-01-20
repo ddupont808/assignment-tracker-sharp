@@ -52,11 +52,13 @@ body {
 .ql-tooltip {
     box-shadow: rgb(0 0 0) 0px 2px 12px -6px, 5px 5px 15px 5px rgb(0 0 0 / 0%);
     opacity: 1;
+    pointer-events: unset;
     transition: opacity 0.1s;
 }
 
 .ql-hidden {
     opacity: 0;
+    pointer-events: none;
     display: block !important;
 }
 
