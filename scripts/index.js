@@ -17,6 +17,7 @@ class ClickableLink extends Link {
     }
 }
 
+
 Quill.register('formats/link', ClickableLink, true);
 Quill.register("modules/htmlEditButton", htmlEditButton);
 
@@ -49,23 +50,20 @@ var quill = new Quill('#editor', {
 });
 new QuillMarkdown(quill);
 
-
-chrome.storage.sync.get(['foregroundColor', 'backgroundColor'], ({ foregroundColor, backgroundColor }) => {
-    $('body, .editor-container, #editor').css('backgroundColor', backgroundColor);
-    $('body, .editor-container, #editor').css('color', foregroundColor);
-});
-
-function getUpdatedNotes({ epoch, notes }) {
+function getUpdatedNotes({ epoch, notes, foregroundColor, backgroundColor }) {
     currentEpoch = epoch || 0;
     quill.setContents(JSON.parse(notes));
+
+    $('body, .editor-container, #editor').css('backgroundColor', backgroundColor);
+    $('body, .editor-container, #editor').css('color', foregroundColor);
 }
 
-chrome.storage.local.get(['epoch', 'notes'], getUpdatedNotes);
-chrome.storage.sync.get(['epoch', 'notes'], getUpdatedNotes);
+chrome.storage.local.get(['epoch', 'notes', 'foregroundColor', 'backgroundColor'], getUpdatedNotes);
+chrome.storage.sync.get(['epoch', 'notes', 'foregroundColor', 'backgroundColor'], getUpdatedNotes);
 
 setInterval(() => {
-    chrome.storage.sync.get(['epoch', 'notes'], (syncData) => {
-        chrome.storage.local.get(['epoch', 'notes'], (localData) => {
+    chrome.storage.sync.get(['epoch', 'notes', 'foregroundColor', 'backgroundColor'], (syncData) => {
+        chrome.storage.local.get(['epoch', 'notes', 'foregroundColor', 'backgroundColor'], (localData) => {
             if (syncData.epoch > localData.epoch) {
                 chrome.storage.local.set(syncData);
             } else if (syncData.epoch < localData.epoch) {
