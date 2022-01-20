@@ -1,0 +1,41 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.editor-container {
+    overflow: auto;
+    height: 100%;
+    
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    padding-right: 4rem;
+    padding-left: 4rem;
+    background-color: #35363A;
+    color: #DADCE0;
+}
+
+/* .ql-container {
+    border: 1px solid lightgray;
+    font-family: unset !important;
+    font-size: unset !important;
+} */
+
+.ql-container .ql-editor {
+    overflow: visible;
+}
+
+a, a:hover, a:active, a:visited {
+    color: #39A8F2;
+}

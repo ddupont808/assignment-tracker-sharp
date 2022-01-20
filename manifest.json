@@ -1,0 +1,25 @@
+﻿{
+  "name": "Assignment Tracker++++",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Changes new tabs page into a rich text editor assignments tracker, editable directly & via right-clicking on assignments.",
+  "author": "Dillon DuPont",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "background": {
+    "service_worker": "menu.js"
+  },
+  "icons": {
+     "128": "icon128.png",
+     "32": "icon32.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ]
+}
