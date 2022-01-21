@@ -1,6 +1,6 @@
 ﻿{
   "name": "Assignment Tracker++++",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "manifest_version": 3,
   "description": "Changes new tabs page into a rich text editor assignments tracker, editable directly & via right-clicking on assignments.",
   "author": "Dillon DuPont",

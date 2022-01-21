@@ -51,11 +51,11 @@ var quill = new Quill('#editor', {
 new QuillMarkdown(quill);
 
 function getUpdatedNotes({ epoch, notes, foregroundColor, backgroundColor }) {
+    $('html, body, .editor-container, #editor').css('backgroundColor', backgroundColor);
+    $('html, body, .editor-container, #editor').css('color', foregroundColor);
+    
     currentEpoch = epoch || 0;
     quill.setContents(JSON.parse(notes));
-
-    $('body, .editor-container, #editor').css('backgroundColor', backgroundColor);
-    $('body, .editor-container, #editor').css('color', foregroundColor);
 }
 
 chrome.storage.local.get(['epoch', 'notes', 'foregroundColor', 'backgroundColor'], getUpdatedNotes);
