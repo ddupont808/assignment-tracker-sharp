@@ -9,6 +9,7 @@ A rewrite of the chrome plugin [Assignment Tracker++](https://github.com/natalie
 ## Installation
 
 The extension can be downloaded from the [chrome store](https://chrome.google.com/webstore/detail/assignment-tracker%20%20%20%20/oalpfcadjkoogenomjfheofngijfjncp?hl=en)
+
 Alternatively, to install directly from this repo, do the following:
 
 ### Chrome
