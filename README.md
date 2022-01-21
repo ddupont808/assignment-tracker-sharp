@@ -1,12 +1,14 @@
 # Assignment Tracker++++
 
+[![](https://i.imgur.com/Z3Hhg8n.png)](https://chrome.google.com/webstore/detail/assignment-tracker%20%20%20%20/oalpfcadjkoogenomjfheofngijfjncp?hl=en)
+
 A rewrite of the chrome plugin [Assignment Tracker++](https://github.com/nataliesstewart/assignment-tracker) by [Natalie Stewart](https://github.com/nataliesstewart), adding a rich-text WYSIWYG editor for markdown, syntax highlighting, links, images, etc. 
 
 ![screenshot](screenie.png)
 
 ## Installation
 
-Currently pending upload to the chrome web store.
+The extension can be downloaded from the [chrome store](https://chrome.google.com/webstore/detail/assignment-tracker%20%20%20%20/oalpfcadjkoogenomjfheofngijfjncp?hl=en)
 Alternatively, to install directly from this repo, do the following:
 
 ### Chrome
