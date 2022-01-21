@@ -55,7 +55,8 @@ function getUpdatedNotes({ epoch, notes, foregroundColor, backgroundColor }) {
     $('html, body, .editor-container, #editor').css('color', foregroundColor);
 
     currentEpoch = epoch || 0;
-    quill.setContents(JSON.parse(notes));
+    if(notes !== undefined)
+        quill.setContents(JSON.parse(notes));
 }
 
 chrome.storage.local.get(['epoch', 'notes', 'foregroundColor', 'backgroundColor'], getUpdatedNotes);
@@ -77,12 +78,13 @@ chrome.storage.onChanged.addListener(({ epoch, notes, backgroundColor, foregroun
     if (epoch !== undefined && epoch.newValue <= currentEpoch)
         return;
     
-    $('html, body, .editor-container, #editor').css('backgroundColor', backgroundColor.newValue);
-    $('html, body, .editor-container, #editor').css('color', foregroundColor.newValue);
+    if(backgroundColor !== undefined)
+        $('html, body, .editor-container, #editor').css('backgroundColor', backgroundColor.newValue);
+    if(foregroundColor !== undefined)
+        $('html, body, .editor-container, #editor').css('color', foregroundColor.newValue);
     
-    if(notes === undefined || notes.newValue === notes.oldValue)
-        return;
-    quill.setContents(JSON.parse(notes.newValue));
+    if(notes !== undefined && notes.newValue !== notes.oldValue)
+        quill.setContents(JSON.parse(notes.newValue));
 });
 
 quill.on('text-change', (delta, source) => {
