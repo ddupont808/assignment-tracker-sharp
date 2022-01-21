@@ -51,8 +51,8 @@ var quill = new Quill('#editor', {
 new QuillMarkdown(quill);
 
 function getUpdatedNotes({ epoch, notes, foregroundColor, backgroundColor }) {
-    $('html, body, .editor-container, #editor').css('backgroundColor', backgroundColor);
-    $('html, body, .editor-container, #editor').css('color', foregroundColor);
+    $('html, body, .editor-container, #editor').css('backgroundColor', backgroundColor || '#35363A');
+    $('html, body, .editor-container, #editor').css('color', foregroundColor || '#DADCE0');
 
     currentEpoch = epoch || 0;
     if(notes !== undefined)
