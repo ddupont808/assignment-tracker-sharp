@@ -53,7 +53,7 @@ new QuillMarkdown(quill);
 function getUpdatedNotes({ epoch, notes, foregroundColor, backgroundColor }) {
     $('html, body, .editor-container, #editor').css('backgroundColor', backgroundColor);
     $('html, body, .editor-container, #editor').css('color', foregroundColor);
-    
+
     currentEpoch = epoch || 0;
     quill.setContents(JSON.parse(notes));
 }
@@ -73,10 +73,14 @@ setInterval(() => {
     });
 }, 3000);
 
-chrome.storage.onChanged.addListener(({ epoch, notes }) => {
-    if (notes === undefined
-        || notes.newValue === notes.oldValue
-        || (epoch !== undefined && epoch.newValue <= currentEpoch))
+chrome.storage.onChanged.addListener(({ epoch, notes, backgroundColor, foregroundColor }) => {
+    if (epoch !== undefined && epoch.newValue <= currentEpoch)
+        return;
+    
+    $('html, body, .editor-container, #editor').css('backgroundColor', backgroundColor.newValue);
+    $('html, body, .editor-container, #editor').css('color', foregroundColor.newValue);
+    
+    if(notes === undefined || notes.newValue === notes.oldValue)
         return;
     quill.setContents(JSON.parse(notes.newValue));
 });
