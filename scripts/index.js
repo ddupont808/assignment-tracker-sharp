@@ -51,7 +51,7 @@ var quill = new Quill('#editor', {
 new QuillMarkdown(quill);
 
 function getUpdatedNotes({ epoch, notes, foregroundColor, backgroundColor }) {
-    if (currnetEpoch > (epoch || 0))
+    if (currentEpoch > (epoch || 0))
         return;
     
     $('html, body, .editor-container, #editor').css('backgroundColor', backgroundColor || '#35363A');
